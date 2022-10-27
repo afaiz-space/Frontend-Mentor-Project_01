@@ -1,152 +1,191 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
 
-  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
-  
-  <title>Frontend Mentor | NFT preview card component</title>
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
 
-  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
-  <style type="text/css">
-    .attribution { font-size: 11px; text-align: center; }
-    .attribution a { color: hsl(228, 45%, 44%); }
-    *{
-      margin: 0 auto;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Verdana, sans-serif;
-    }
-    .main{
-      width: 400px;
-      height:620px;
-      background-color: #15273fff;
-      border-radius: 10px;
+    <title>Frontend Mentor | NFT preview card component</title>
 
-    }
-    .image-equilibrium{
-      margin:auto;
-      padding-top: 30px;
-      width: 350px;
-      position: relative;
-    }
-    .image-equilibrium>img{      
-      width: 350px;
-      border-radius: 10px;
-      z-index: 1;
-    }
-    
-      
+    <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+    <style type="text/css">
+      .attribution {
+        font-size: 11px;
+        text-align: center;
+        color: var(--White);
+      }
+      .attribution a {
+        color: hsl(228, 45%, 44%);
+      }
+      :root {
+        --Soft-blue: hsl(215, 51%, 70%);
+        --Cyan: hsl(178, 100%, 50%);
 
-    
-    h2{
-      margin: 20px auto 20px auto ;
-      color: #faffffff;
-    }
-    p{
-      color:#8eaedcff;
-    }
-    .etherum_clock{
-      width: 350px;
-      height: 40px;      
-      border-bottom:1px solid #faffffff;
-      margin:10px auto 10px auto;
-      display: flex;
-      
-    }
-    .etherum{
-      margin: 0 90px 0 0;
-      display: flex;
-      align-items: center;
-    }
-    .clock{
-      margin: 0 0 0 90px;
-      display: flex;
-      align-items: center;
-    }
-    h5{
-      margin: 0 0 0 5px;
-    }
-    .etherum>h5{
-      color:#0dabaaff;
-    }
-    .clock>h5{
-      color:#faffffff;
-    }
+        --Very-dark-blue-main: hsl(217, 54%, 11%); /*(main BG)*/
+        --Very-dark-blue-card: hsl(216, 50%, 16%); /*(card BG)*/
+        --Very-dark-blue: hsl(215, 32%, 27%); /*(line)*/
+        --White: hsl(0, 0%, 100%);
+      }
+      * {
+        /* border: 2px solid red; */
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+        font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+          "Lucida Sans Unicode", Verdana, sans-serif;
+      }
+      body {
+        min-height: 100vh;
 
-    .avtar{
-      align-items: flex-start;
-      margin: 10px auto 10px auto;
-      display: flex;  
-      align-items: center;   
-    }
-    .avtar>img{
-      width: 40px;
-      border: 2px solid #faffffff;
-      border-radius: 50%;
-    }
-    .avtar>pre{
-      position: relative;
-      left: -70px;
-      color:#8eaedcff; 
-    }
-    span{
-      color: #faffffff;
-    }   
-    .equilibrium:hover{
-      background-image: url(/images/icon-view.svg);
-      cursor: pointer;
-    }
-    span:hover{
-      color:#0dabaaff;
-      cursor: pointer;
-    }
-    h2:hover{
-      color:#0dabaaff;
-      cursor: pointer;
-    }
-    
+        display: flex;
+        flex-direction: column;
+        place-items: center;
+        place-content: center;
+        gap: 20px;
+        background: var(--Very-dark-blue-main);
+      }
+      .main {
+        width: 20rem;
 
+        background-color: var(--Very-dark-blue-card);
+        border-radius: 10px;
+        padding: 20px;
+      }
 
-  </style>
-</head>
-<body>
+      .image-equilibrium > img {
+        width: 100%;
+        border-radius: 10px;
+      }
+      .img-sec {
+        position: relative;
+      }
+      .icon_view {
+        height: 98%;
+        width: 100%;
 
-  Equilibrium #3429
+        background: var(--Cyan) url("./images/icon-view.svg") center no-repeat;
+        border-radius: 12px;
 
-  Our Equilibrium collection promotes balance and calm.
+        position: absolute;
+        top: 0;
+        opacity: 0;
+        transition: all ease 0.5s;
+      }
+      .icon_view:hover {
+        opacity: 60%;
+        cursor: pointer;
+      }
 
-  0.041 ETH
-  3 days left
-  
-  Creation of Jules Wyvern
+      h2 {
+        margin: 20px auto 20px auto;
 
-  <div class="attribution">
-    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
-    Coded by <a href="#">Faizan</a>.
-  </div>
-  <div class="main">
-    <div class="image-equilibrium">
-    
-      <img src="images/image-equilibrium.jpg" class="equilibrium" alt="equilibrium-image">
-      <h2>Equilibrium #3429</h2>
-      <p>Our Equlibrium collecton promotes balance and calm.</p>
+        color: var(--White);
+      }
+      p {
+        color: var(--Soft-blue);
+      }
+      .etherum_clock {
+        border-bottom: 1px solid var(--Very-dark-blue);
+        min-height: 3rem;
+        margin: 10px 0;
+        display: flex;
+        justify-content: space-between;
+      }
+      .etherum {
+        display: flex;
+        align-items: center;
+      }
+      .clock {
+        display: flex;
+        align-items: center;
+      }
+      h5 {
+        margin: 0 0 0 5px;
+      }
+      .etherum > h5 {
+        color: var(--Cyan);
+      }
+      .clock > h5 {
+        color: var(--Soft-blue);
+      }
+
+      .avtar {
+        align-items: flex-start;
+        margin: 10px auto 10px auto;
+        display: flex;
+        align-items: center;
+        gap: 20px;
+      }
+      .avtar > img {
+        width: 40px;
+        border: 2px solid var(--White);
+        border-radius: 50%;
+      }
+      .avtar > pre {
+        color: var(--Soft-blue);
+      }
+      span {
+        color: var(--White);
+      }
+
+      span:hover,
+      h2:hover {
+        color: var(--Cyan);
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="main">
+      <div class="img-sec">
+        <div class="image-equilibrium">
+          <img
+            src="images/image-equilibrium.jpg"
+            class="equilibrium"
+            alt="equilibrium-image"
+          />
+        </div>
+        <div class="icon_view"></div>
+      </div>
+      <div>
+        <h2>Equilibrium #3429</h2>
+        <p>Our Equlibrium collecton promotes balance and calm.</p>
+      </div>
+      <div class="etherum_clock">
+        <div class="etherum">
+          <img
+            src="images/icon-ethereum.svg"
+            class="etherum_image"
+            alt="etherum_image"
+          />
+          <h5 class="heading1">0.041ETH</h5>
+        </div>
+        <div class="clock">
+          <img
+            src="images/icon-clock.svg"
+            class="clock_icon"
+            alt="clock-icon"
+          />
+          <h5 class="heading2">3 days left</h5>
+        </div>
+      </div>
+      <div class="avtar">
+        <img src="images/image-avatar.png" alt="avtar" />
+        <pre>Creation of  <span>Jules Wyvern</span></pre>
+      </div>
     </div>
-    <div class="etherum_clock">
-      <div class="etherum">
-        <img src="images/icon-ethereum.svg"class="etherum_image" alt="etherum_image">        
-        <h5 class="heading1"> 0.041ETH</h5>
-      </div>
-      <div class="clock">
-        <img src="images/icon-clock.svg" class="clock_icon" alt="clock-icon">
-        <h5 class="heading2">3 days left</h5>
-      </div>
-      </div>
-    <div class="avtar">
-      <img src="images/image-avatar.png" alt="avtar">
-      <pre>Creation of  <span>Jules Wyvern</span></pre>
+    <div class="attribution">
+      Challenge by
+      <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
+        >Frontend Mentor</a
+      >. Coded by <a href="#">Faizan</a>.
     </div>
-  </div>
-</body>
+  </body>
 </html>
